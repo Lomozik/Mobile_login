@@ -13,6 +13,7 @@ import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SegmentedButtonDefaults.Icon
@@ -20,8 +21,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.textfieldicon.ui.theme.Component.OutlinedTextFieldWithTrailingIcon
 import com.example.textfieldicon.ui.theme.TextFieldIconTheme
 
@@ -51,6 +54,13 @@ fun DemoApp(modifier: Modifier = Modifier) {
         modifier = modifier.padding(start = 8.dp, end = 8.dp)
     )
     {
+        Text (
+            text = "Login",
+            fontSize = 24.sp,
+            color = MaterialTheme.colorScheme.primary,
+            textAlign = TextAlign.Center,
+            modifier = modifier.fillMaxWidth().padding(vertical = 16.dp)
+        )
         /*OutlinedTextField(
             value = "",
             onValueChange = {},
@@ -62,7 +72,7 @@ fun DemoApp(modifier: Modifier = Modifier) {
         )*/
         OutlinedTextFieldWithTrailingIcon("Username", Icons.Filled.Email, KeyboardType.Email, "Email Icon")
         OutlinedTextFieldWithTrailingIcon("Password", Icons.Filled.Lock, KeyboardType.Password,"Lock/Password Icon", true)
-        Button({ btn_on_click() }, modifier.padding(start = 1.dp)) {
+        Button({btn_on_click()}, modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)) {
             Text("Login")
         }
     }
